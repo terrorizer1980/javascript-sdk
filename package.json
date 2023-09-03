@@ -10,7 +10,9 @@
     "build": "rm -rf lib && npx babel src -d lib",
     "build:docs": "npx jsdoc-to-markdown -f src/**/*.js > docs/jsdoc.md",
     "prepublishOnly": "npm run build",
-    "lint": "eslint --fix src __tests__"
+    "lint": "eslint --fix src __tests__",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.4",
@@ -36,7 +38,8 @@
     "url": "^0.11.0",
     "uuid": "^3.3.2",
     "varstruct": "^6.1.2",
-    "websocket-stream": "^5.5.0"
+    "websocket-stream": "^5.5.0",
+    "@snyk/protect": "latest"
   },
   "optionalDependencies": {
     "@ledgerhq/hw-transport-node-hid": "^4.63.2"
@@ -80,5 +83,6 @@
     "**/**/handlebars": "^4.1.2",
     "**/**/ecstatic": "^3.3.2",
     "**/**/mem": "^4.0.0"
-  }
+  },
+  "snyk": true
 }
